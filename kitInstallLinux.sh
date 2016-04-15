@@ -11,6 +11,7 @@ GWDMZ=38
 GWLAN=1
 DMZ=192.168.100.
 LAN=172.18.244.
+RUTARED="/etc/sysconfig/network-script/ifcg-"
 
 
 
@@ -71,15 +72,15 @@ if [ $OP = 1 ]
         echo "DNS1="$DMZ$DNS1
         echo "DNS2="$DMZ$DNS2
         echo "DOMAIN="$DOMAIN
-        if [ -f ifcg-$IF ]
+        if [ -f $RUTARED$IF ]
          then
-                sed -i 's/ONBOOT=no/ONBOOT=yes/g' ifcg-$IF
-                echo "IPADDDR="$DMZ$IP >> ifcg-$IF
-                echo "NETMASK="$NETMASK >> ifcg-$IF
-                echo "GATEWAY="$DMZ$GWDMZ >> ifcg-$IF
-                echo "DNS1="$DMZ$DNS1 >> ifcg-$IF
-                echo "DNS2="$DMZ$DNS2 >> ifcg-$IF
-                echo "DOMAIN="$DOMAIN >> ifcg-$IF
+                sed -i 's/ONBOOT=no/ONBOOT=yes/g' $RUTARED$IF
+                echo "IPADDDR="$DMZ$IP >> $RUTARED$IF
+                echo "NETMASK="$NETMASK >> $RUTARED$IF
+                echo "GATEWAY="$DMZ$GWDMZ >> $RUTARED$IF
+                echo "DNS1="$DMZ$DNS1 >> $RUTARED$IF
+                echo "DNS2="$DMZ$DNS2 >> $RUTARED$IF
+                echo "DOMAIN="$DOMAIN >> $RUTARED$IF
                 echo "Configuracion relizada"
          else
                 echo "La Interface no existe"
@@ -88,7 +89,7 @@ if [ $OP = 1 ]
         echo "____________________________"
         echo "Configuracion realizada"
         echo "____________________________"
-        cat ifcg-$IF
+        cat $RUTARED$IF
         echo "____________________________"
 elif [ $OP = 2 ]
  then
@@ -106,15 +107,15 @@ elif [ $OP = 2 ]
 	echo "DNS1="$LAN$DNS1
         echo "DNS2="$LAN$DNS2
         echo "DOMAIN="$DOMAIN
-        if [ -f ifcg-$IF ]
+        if [ -f $RUTARED$IF ]
          then
-                sed -i 's/ONBOOT=no/ONBOOT=yes/g' ifcg-$IF
-                echo "IPADDDR="$LAN$IP >> ifcg-$IF
-                echo "NETMASK="$NETMASK >> ifcg-$IF
-                echo "GATEWAY="$LAN$GWDMZ >> ifcg-$IF
-                echo "DNS1="$LAN$DNS1 >> ifcg-$IF
-                echo "DNS2="$LAN$DNS2 >> ifcg-$IF
-                echo "DOMAIN="$DOMAIN >> ifcg-$IF
+                sed -i 's/ONBOOT=no/ONBOOT=yes/g' $RUTARED$IF
+                echo "IPADDDR="$LAN$IP >> $RUTARED$IF
+                echo "NETMASK="$NETMASK >> $RUTARED$IF
+                echo "GATEWAY="$LAN$GWDMZ >> $RUTARED$IF
+                echo "DNS1="$LAN$DNS1 >> $RUTARED$IF
+                echo "DNS2="$LAN$DNS2 >> $RUTARED$IF
+                echo "DOMAIN="$DOMAIN >> $RUTARED$IF
                 echo "Configuracion relizada"
          else
                 echo "La Interface no existe"
@@ -123,7 +124,7 @@ elif [ $OP = 2 ]
         echo "____________________________"
         echo "Configuracion realizada"
         echo "____________________________"
-        cat ifcg-$IF
+        cat $RUTARED$IF
         echo "____________________________"
 else
         echo "No  es una opcion valida"
