@@ -1,6 +1,6 @@
 #!/bin/sh
 #Kit de configuracion server Linux Viva Dominicana
-#by Ennunez
+#by Ennunez 20160415
 
 #AREA de Variables
 DOMAIN="om.do"
