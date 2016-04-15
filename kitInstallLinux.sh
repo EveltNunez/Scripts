@@ -31,7 +31,7 @@ Menu(){
 	read opmenu
 	case $opmenu in
 	
-	 1) hostname ;; 
+		 1) hostname ;; 
          2) interface ;;
          3) paquetes ;;
          4) webserver ;;
@@ -181,6 +181,11 @@ snmp(){
 	echo
 	ssh -l root $HOSTIP passwd consult_opm
 	echo
+	Menu
+}
+
+all() { 
+ echo "hola"
 	Menu
 }
 Menu
